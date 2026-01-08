@@ -9,7 +9,7 @@
 
 ]]--
 
-local v0 = loadstring(game:HttpGet("https://raw.githubusercontent.com/vvhoy884ugvv/hgcdghcvjh/refs/heads/main/sfvd.txt"))(); -- 
+local v0 = loadstring(game:HttpGet("https://raw.githubusercontent.com/B6O6S/CHANGE-GUI-COLOR/refs/heads/main/Test"))(); -- 
 -- Bogus Performance Evaluation: x1.000
 local v1 = v0:CreateWindow({Name="B6O6S HUB [FORTLINE]",LoadingTitle="Made By B6O6S",LoadingSubtitle="By B6O6S TEAM",ConfigurationSaving={Enabled=true,FolderName=nil,FileName="B6O6S VIP"},Discord={Enabled=false,Invite="dvdge._",RememberJoins=true},BackgroundColor=Color3.fromRGB(255, 1916 - (108 + 1553), 768 - (232 + 281)),TextColor=Color3.fromRGB(1138 - (116 + 1022), 1253 - (976 + 277), 957 - (892 + 65))});
 v0:Notify({Title="B6O6S HUB INJECTED 👑",Content="Thank you so much for using my script!",Duration=0,Image=(1069582394 - 621219936),Actions={Ignore={Name="Close",Callback=function()
