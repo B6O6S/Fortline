@@ -11,7 +11,7 @@
 
 local v0 = loadstring(game:HttpGet("https://raw.githubusercontent.com/vvhoy884ugvv/hgcdghcvjh/refs/heads/main/sfvd.txt"))(); -- 
 -- Bogus Performance Evaluation: x1.000
-local v1 = v0:CreateWindow({Name="B6O6S HUB [FORTLINE]",LoadingTitle="Made By HydraX",LoadingSubtitle="By HydraX",ConfigurationSaving={Enabled=true,FolderName=nil,FileName="HydraVIP"},Discord={Enabled=true,Invite="dvdge._",RememberJoins=true},BackgroundColor=Color3.fromRGB(255, 1916 - (108 + 1553), 768 - (232 + 281)),TextColor=Color3.fromRGB(1138 - (116 + 1022), 1253 - (976 + 277), 957 - (892 + 65))});
+local v1 = v0:CreateWindow({Name="B6O6S HUB [FORTLINE]",LoadingTitle="Made By B6O6S",LoadingSubtitle="By B6O6S TEAM",ConfigurationSaving={Enabled=true,FolderName=nil,FileName="B6O6S VIP"},Discord={Enabled=false,Invite="dvdge._",RememberJoins=true},BackgroundColor=Color3.fromRGB(255, 1916 - (108 + 1553), 768 - (232 + 281)),TextColor=Color3.fromRGB(1138 - (116 + 1022), 1253 - (976 + 277), 957 - (892 + 65))});
 v0:Notify({Title="🐉Hydra.VIP🐉 INJECTED",Content="Thank you so much for using my script!",Duration=0,Image=(1069582394 - 621219936),Actions={Ignore={Name="Close",Callback=function()
 	print("Notification closed");
 end}}});
@@ -67,19 +67,7 @@ v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
 		end
 	end
 end});
-local v6 = v1:CreateTab("ESP", 448363410 - (802 + 150));
-local v7 = v6:CreateSection("ESP");
-v6:CreateButton({Name="ESP V1",Callback=function()
-	local v29 = 0 + 0;
-	while true do
-		if (v29 == 0) then
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP"))();
-			print("ESP V1 activated!");
-			break;
-		end
-	end
-end});
-local v8 = v1:CreateTab("🐉Contributors", 1207143410 - 758780952);
+local v8 = v1:CreateTab("المالك 👑", 1207143410 - 758780952);
 local v9 = v8:CreateSection("Contributors");
 v8:CreateButton({Name="B6O6S ON DISCORD",Callback=function()
 	local v30 = 0;
