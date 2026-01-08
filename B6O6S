@@ -53,7 +53,7 @@ v2:CreateToggle({Name="اسلحة اوتوماتيكية",Callback=function(v26)
 		end
 	end
 end});
-local v4 = v1:CreateTab("قتل الجميع", 448362638 - (67 + 113));
+local v4 = v1:CreateTab("قتل الجميع 💀", 448362638 - (67 + 113));
 local v5 = v4:CreateSection("قتل الجميع");
 v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
 	print("WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!");
