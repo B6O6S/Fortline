@@ -1,0 +1,238 @@
+-- تحميل مكتبة الواجهة
+local Library = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/vvhoy884ugvv/hgcdghcvjh/main/sfvd.txt"
+))()
+
+-- إنشاء النافذة
+local Window = Library:CreateWindow({
+    Name = "B6O6S HUB [ FORTLINE ]",
+    LoadingTitle = "Made by B6O6S",
+    LoadingSubtitle = "B6O6SHUB",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = nil,
+        FileName = "B6O6S HUB FORTLINE"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "B6O6S",
+        RememberJoins = true
+    }
+})
+
+-- إشعار
+Library:Notify({
+    Title = "B6O6S HUB [FORTLINE",
+    Content = "تم حقن السكربت بنجاح، شكرًا لاستخدامك!",
+    Duration = 0
+})
+
+-- المتغيرات
+_G.silentAim = false
+_G.infiniteAmmo = false
+_G.noRecoil = false
+_G.noSpread = false
+_G.fastFire = false
+_G.autoGuns = false
+
+--================================
+-- تبويب التصويب
+--================================
+local AimbotTab = Window:CreateTab("🎯 التصويب")
+AimbotTab:CreateSection("إعدادات التصويب")
+
+AimbotTab:CreateToggle({
+    Name = "ايم بوت",
+    Callback = function(v)
+        _G.silentAim = v
+    end
+})
+
+AimbotTab:CreateToggle({
+    Name = "ذخيرة لا نهائية",
+    Callback = function(v)
+        _G.infiniteAmmo = v
+    end
+})
+
+AimbotTab:CreateToggle({
+    Name = "ثبات الايم",
+    Callback = function(v)
+        _G.noRecoil = v
+    end
+})
+
+AimbotTab:CreateToggle({
+    Name = "بدون انتشار الطلق",
+    Callback = function(v)
+        _G.noSpread = v
+    end
+})
+
+AimbotTab:CreateToggle({
+    Name = "إطلاق نار سريع",
+    Callback = function(v)
+        _G.fastFire = v
+    end
+})
+
+AimbotTab:CreateToggle({
+    Name = "أسلحة أوتوماتيكية",
+    Callback = function(v)
+        _G.autoGuns = v
+    end
+})
+
+--================================
+-- تبويب قتل الجميع
+--================================
+local KillTab = Window:CreateTab("☠️ قتل الجميع")
+KillTab:CreateSection("الهجوم")
+
+KillTab:CreateButton({
+    Name = "قتل جميع اللاعبين",
+    Callback = function()
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+        local gunName = "Sniper"
+
+        if not LocalPlayer.Character:FindFirstChild(gunName) then
+            LocalPlayer.Character.Humanoid:EquipTool(
+                LocalPlayer.Backpack[gunName]
+            )
+        end
+
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer and player.Character then
+                game.ReplicatedStorage.WeaponsSystem.Network.WeaponHit:FireServer(
+                    LocalPlayer.Character[gunName],
+                    {
+                        p = player.Character.Head.Position,
+                        pid = 1,
+                        part = player.Character.Head,
+                        d = 500,
+                        maxDist = 500,
+                        h = player.Character.Humanoid,
+                        m = Enum.Material.Plastic,
+                        n = Vector3.new(0, -1, 0),
+                        t = 0.15,
+                        sid = 32
+                    }
+                )
+            end
+        end
+    end
+})
+
+--================================
+-- تبويب الرؤية
+--================================
+local ESPTab = Window:CreateTab("👁️ الرؤية (ESP)")
+ESPTab:CreateSection("الرؤية")
+
+ESPTab:CreateButton({
+    Name = "تفعيل الرؤية",
+    Callback = function()
+        loadstring(game:HttpGet(
+            "https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP"
+        ))()
+    end
+})
+
+--================================
+-- تبويب المساهمين
+--================================
+local ContribTab = Window:CreateTab("👥 المساهمون")
+ContribTab:CreateSection("الداعمين")
+
+ContribTab:CreateButton({
+    Name = "GAMES_M.D - قناة يوتيوب",
+    Callback = function()
+        setclipboard("https://youtube.com/@games.gaming_30")
+    end
+})
+
+--================================
+-- نظام الأسلحة
+--================================
+local BaseWeapon = require(
+    game.ReplicatedStorage.WeaponsSystem.Libraries.BaseWeapon
+)
+
+local oldFire = BaseWeapon.fire
+local oldGetAmmo = BaseWeapon.getAmmoInWeapon
+local oldUseAmmo = BaseWeapon.useAmmo
+local oldGetConfig = BaseWeapon.getConfigValue
+
+local Players = game:GetService("Players")
+local Camera = workspace.CurrentCamera
+local UIS = game:GetService("UserInputService")
+
+local function getClosestTarget()
+    local closest
+    local shortest = math.huge
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= Players.LocalPlayer and player.Character then
+            local humanoid = player.Character:FindFirstChild("Humanoid")
+            local head = player.Character:FindFirstChild("Head")
+
+            if humanoid and head and humanoid.Health > 0 then
+                local pos, visible = Camera:WorldToViewportPoint(head.Position)
+                if visible then
+                    local mousePos = UIS:GetMouseLocation()
+                    local dist = (Vector2.new(pos.X, pos.Y) - mousePos).Magnitude
+
+                    if dist < shortest then
+                        shortest = dist
+                        closest = head
+                    end
+                end
+            end
+        end
+    end
+
+    return closest
+end
+
+BaseWeapon.getAmmoInWeapon = function(self, ...)
+    if _G.infiniteAmmo then
+        return math.huge
+    end
+    return oldGetAmmo(self, ...)
+end
+
+BaseWeapon.fire = function(self, ...)
+    local args = {...}
+    if _G.silentAim then
+        local target = getClosestTarget()
+        if target then
+            args[2] = (target.Position - args[1]).Unit
+            args[3] = 1
+        end
+    end
+    return oldFire(self, unpack(args))
+end
+
+BaseWeapon.getConfigValue = function(self, key)
+    if _G.fastFire and key == "ShotCooldown" then
+        return 0.01
+    end
+    if _G.autoGuns and key == "FireMode" then
+        return "Automatic"
+    end
+    if _G.noRecoil and (key == "RecoilMin" or key == "RecoilMax") then
+        return 0
+    end
+    if _G.noSpread and (key == "MinSpread" or key == "MaxSpread") then
+        return 0
+    end
+    return oldGetConfig(self, key)
+end
+
+BaseWeapon.useAmmo = function(self, ...)
+    if _G.infiniteAmmo and self.ammoInWeaponValue then
+        return true
+    end
+    return oldUseAmmo(self, ...)
+end
