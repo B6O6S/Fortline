@@ -75,7 +75,7 @@ local MainSection = MainTab:CreateSection("")
 local Button = MainTab:CreateButton({
    Name = "رادار الاعبين",
    Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/ptctREWZ", true))()
+loadstring(game:HttpGet("https://pastebin.com/raw/NvJBRKcM", true))()
    end,
 })
 
