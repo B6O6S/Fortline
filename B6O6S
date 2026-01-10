@@ -15,7 +15,7 @@ local v1 = v0:CreateWindow({Name="B6O6S HUB [FORTLINE]",LoadingTitle="Made By B6
 v0:Notify({Title="B6O6S HUB INJECTED 👑",Content="Thank you so much for using my script!",Duration=0,Image=(1069582394 - 621219936),Actions={Ignore={Name="Close",Callback=function()
 	print("Notification closed");
 end}}});
-local v2 = v1:CreateTab("ايم بوت 🎯", 828769388 - 380406930);
+local v2 = v1:CreateTab("الفايتات 🎯", 828769388 - 380406930);
 local v3 = v2:CreateSection("ايمبوت");
 v2:CreateToggle({Name="ايم بوت",Callback=function(v20)
 	_G.silentAim = v20;
@@ -53,6 +53,14 @@ v2:CreateToggle({Name="اسلحة اوتوماتيكية",Callback=function(v26)
 		end
 	end
 end});
+
+MainTab:CreateButton({
+   Name = "قود مود",
+   Callback = function()
+       loadstring(game:HttpGet("https://pastebin.com/raw/6bJ2k4tZ, true))()
+   end,
+})
+
 local v4 = v1:CreateTab("قتل الجميع 💀", 448362638 - (67 + 113));
 local v5 = v4:CreateSection("قتل الجميع");
 v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
