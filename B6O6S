@@ -27,21 +27,19 @@ v2:CreateToggle({Name="اسلحة اوتوماتيكية",Callback=function(v) _
 
 -- God Mode
 v2:CreateButton({
-    Name="God Mode 🔰",
+    Name="God Mode",
     Callback=function()
         loadstring(game:HttpGet("https://pastebin.com/raw/6bJ2k4tZ", true))()
     end
 })
 
--- رؤوس كبيرة
 v2:CreateButton({
-    Name="رؤوس كبيره",
+    Name="رؤوس كبيرة",
     Callback=function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Head-Hitbox-Expander-61730"))()
     end
 })
 
--- منظور PC (ON / OFF فعلي)
 local pcConnection
 local defaultCFrame
 
