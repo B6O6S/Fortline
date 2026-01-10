@@ -54,13 +54,6 @@ v2:CreateToggle({Name="اسلحة اوتوماتيكية",Callback=function(v26)
 	end
 end});
 
-MainTab:CreateButton({
-   Name = "قود مود",
-   Callback = function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/6bJ2k4tZ, true))()
-   end,
-})
-
 local v4 = v1:CreateTab("قتل الجميع 💀", 448362638 - (67 + 113));
 local v5 = v4:CreateSection("قتل الجميع");
 v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
@@ -76,7 +69,7 @@ v4:CreateButton({Name="اضغط لقتل الجميع",Callback=function()
 	end
 end});
 
-local MainTab = v1:CreateTab("رادار 👁️", nil)
+local MainTab = v1:CreateTab("الرادار والقود مود 🔥", nil)
 
 local MainSection = MainTab:CreateSection("")
 
@@ -86,6 +79,14 @@ MainTab:CreateButton({
        loadstring(game:HttpGet("https://pastebin.com/raw/NvJBRKcM", true))()
    end,
 })
+
+MainTab:CreateButton({
+   Name = "قود مود",
+   Callback = function()
+       loadstring(game:HttpGet("https://pastebin.com/raw/6bJ2k4tZ, true))()
+   end,
+})
+
 
 local v8 = v1:CreateTab("المالك 👑", 1207143410 - 758780952);
 local v9 = v8:CreateSection("Contributors");
